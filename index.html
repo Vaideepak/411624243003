@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 1 - Responsive Website</title>
+
+  <!-- Step 1: Link the CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ── H1 ── -->
+    <h1>Welcome to My Responsive Page</h1>
+
+    <!-- ── IMAGE with rounded edges ── -->
+    <img
+      src="https://picsum.photos/seed/task1/400/300"
+      alt="Sample landscape"
+      class="rounded-img"
+    />
+
+    <!-- ── VIDEO (width = 50vw) ── -->
+    <div class="video-wrapper">
+      <video controls class="styled-video">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- ── TABLE (3×3) ── -->
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column A</th>
+          <th>Column B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Some text</td>
+          <td>Some text</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Some text</td>
+          <td>Some text</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Some text</td>
+          <td>Some text</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── BUTTON ── -->
+    <button class="styled-btn" id="actionBtn">Click Me</button>
+
+    <!-- ── GRID (8 items) ── -->
+    <section class="grid-section">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+    </section>
+
+  </main>
+
+  <!-- Step 2: Link the JS file — always at the bottom of <body> -->
+  <script src="script.js"></script>
+</body>
+</html>

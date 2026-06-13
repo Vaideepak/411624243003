@@ -1,0 +1,196 @@
+/* ============================================================
+   style.css  —  Task 1 Responsive Website
+   ============================================================
+   ROLL NUMBER CUSTOMISATION (change the variable below):
+     Ends 0–3  →  --accent: #1a6fd4   (blue)
+     Ends 4–6  →  --accent: #2e9e4f   (green)  ← default here
+     Ends 7–9  →  --accent: #7c3aed   (purple)
+
+   Even roll  →  --img-radius: 50px   ← default here
+   Odd roll   →  --img-radius: 20px
+   ============================================================ */
+
+:root {
+  --accent:     #2e9e4f;   /* green — change if needed */
+  --img-radius: 50px;      /* 50px = even roll; 20px = odd roll */
+
+  --bg:         #f5f7fa;
+  --surface:    #ffffff;
+  --text:       #1e1e2e;
+  --muted:      #6b7280;
+  --border:     #e2e8f0;
+  --radius:     10px;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── NAVBAR  (Mobile-first → vertical by default) ── */
+.navbar {
+  display: flex;
+  flex-direction: column;          /* mobile: vertical stack */
+  background: var(--accent);
+  padding: 1rem 1.25rem;
+  gap: 0.6rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+  transition: opacity 0.2s;
+}
+
+.navbar a:hover { opacity: 0.75; }
+
+/* Desktop: row with gaps */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;           /* desktop: horizontal */
+    gap: 2rem;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+}
+
+/* ── H1 ── */
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text);
+}
+
+/* ── IMAGE with rounded edges ── */
+.rounded-img {
+  display: block;
+  border-radius: var(--img-radius);   /* 50px or 20px per roll number */
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,.10);
+}
+
+/* ── VIDEO ── */
+.video-wrapper {
+  width: 100%;
+}
+
+.styled-video {
+  display: block;
+  width: 50vw;                        /* half the device width */
+  min-width: 200px;
+  padding: 8px;                       /* padding for video */
+  background: var(--accent);          /* same color as button */
+  border-radius: var(--radius);
+}
+
+/* ── TABLE ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Row-number headings (1, 2, 3) */
+.data-table tbody th {
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+  width: 3rem;
+}
+
+/* Column headings */
+.data-table thead th {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+
+.data-table tbody tr:last-child td,
+.data-table tbody tr:last-child th { border-bottom: none; }
+
+.data-table tbody tr:hover { background: #f0fdf4; }
+
+/* ── BUTTON ── */
+.styled-btn {
+  display: inline-block;
+  border: none;                       /* no border */
+  background: var(--accent);          /* same color as video */
+  color: #fff;
+  padding: 0.75rem 2rem;              /* padding */
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin: 0.5rem 0;                   /* margin for button */
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+
+/* Hover effect */
+.styled-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
+
+.styled-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── GRID  (Desktop-first) ── */
+.grid-section {
+  display: grid;
+  /* Desktop default: 4 columns → items 1-4 in row 1, 5-8 in row 2 */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.grid-item {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  transition: transform 0.15s;
+}
+
+.grid-item:hover { transform: translateY(-3px); }
+
+/* Mobile: 2 columns → 1,2 / 3,4 / 5,6 / 7,8 */
+@media (max-width: 767px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
